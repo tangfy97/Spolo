@@ -14,9 +14,10 @@ Spolo ships two ways from the same code: the **Mac App Store** (the `AppStore` b
    ```bash
    scripts/appstore.sh upload
    ```
-4. Website: build, sign, notarize and staple.
+4. Website: build, sign, notarize and staple, then publish (see [WEBSITE.md](WEBSITE.md)).
    ```bash
    scripts/release.sh
+   scripts/publish-website.sh ~/Documents/tang-spark.no
    ```
 
 ## One-time setup
@@ -27,7 +28,7 @@ Spolo ships two ways from the same code: the **Mac App Store** (the `AppStore` b
 | Notarization profile `kvikkshot` | In the keychain, shared with Kvikkshot |
 | App Store distribution signing | Cloud-managed by Xcode |
 | Bundle ID `com.feiyangtang.Spolo` | Registered by Xcode on the first archive |
-| App record | Created 22 October 2026: Apple ID 6825929542; build 1.0.0 (1) uploaded; listing, categories, age rating, privacy and screenshots filled in |
+| App record | Created 22 October 2026: Apple ID 6825929542; build 1.0.0 (1) attached; listing, price, availability, privacy and review notes filled in; not yet submitted for review |
 
 ## App Store Connect
 
@@ -42,6 +43,7 @@ Spolo ships two ways from the same code: the **Mac App Store** (the `AppStore` b
 | Primary category | Photo & Video |
 | Secondary category | Utilities |
 | Price | Free (Pro comes in 1.1 as a one-time in-app purchase) |
+| Availability | 174 countries or regions: everywhere except China mainland, which needs an ICP filing number |
 | Age rating | 4+ (no objectionable content) |
 | App Privacy | Data Not Collected |
 | Export compliance | No encryption (`ITSAppUsesNonExemptEncryption` is false) |
@@ -51,7 +53,7 @@ Spolo ships two ways from the same code: the **Mac App Store** (the `AppStore` b
 | Privacy Policy URL | https://tang-spark.no/spolo-support.html#privacy |
 | Localizations | English (U.S.), English (U.K.). The listing is English only; the app itself also speaks Simplified and Traditional Chinese. |
 
-The three tang-spark.no pages have to be live before the app is submitted for review.
+The three tang-spark.no pages are live (see [WEBSITE.md](WEBSITE.md)).
 
 ### Screenshots
 

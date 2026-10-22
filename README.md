@@ -16,7 +16,7 @@ A native macOS app that merges photos and videos into one video, entirely on you
 - English, English (UK), Simplified Chinese and Traditional Chinese, following the system language
 - Runs in the App Sandbox with no network access; no accounts, no analytics ([privacy policy](PRIVACY.md))
 
-**Download:** Spolo 1.0 is free. It needs macOS 14 Sonoma or later, on Apple silicon or Intel. A Mac App Store version and a signed download from [tang-spark.no](https://tang-spark.no) are on their way.
+**Download:** Spolo 1.0 is free. Get the signed, notarized disk image from [Releases](https://github.com/tangfy97/Spolo/releases/latest) or [tang-spark.no/spolo](https://tang-spark.no/spolo.html); it is coming to the Mac App Store. It needs macOS 14 Sonoma or later, on Apple silicon or Intel.
 
 ## Build
 
@@ -34,12 +34,12 @@ scripts/test-merge.sh     # merges generated test media and checks every frame (
 |---|---|
 | `scripts/release.sh` | Website build: Developer ID, notarized, as a DMG and zip in `build/release` |
 | `scripts/appstore.sh` | App Store build: signed installer package, and `upload` sends it to App Store Connect |
-| `scripts/publish-website.sh` | Copies the pages (and a notarized disk image) into the tang-spark.no site |
+| `scripts/publish-website.sh` | Copies the pages from `website/` (and the notarized disk image) into the tang-spark.no site |
 | `scripts/icon.swift` | Renders the app icon into the asset catalog |
 | `scripts/sample-video.swift`, `scripts/storeshot.swift` | Sample footage and App Store screenshot composition |
 | `scripts/test-merge.sh`, `scripts/test-photos.swift` | Test media and end-to-end checks of the merge engine |
 
-Releasing and App Store Connect values: [docs/APP_STORE.md](docs/APP_STORE.md). How the engine works: [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). The product plan, including what comes in Pro: [docs/PLAN.md](docs/PLAN.md).
+Releasing and App Store Connect values: [docs/APP_STORE.md](docs/APP_STORE.md). How the engine works: [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). The website pages: [docs/WEBSITE.md](docs/WEBSITE.md). The product plan, including what comes in Pro: [docs/PLAN.md](docs/PLAN.md).
 
 ## License
 

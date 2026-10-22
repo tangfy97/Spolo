@@ -2,7 +2,7 @@
 
 All notable changes to Spolo are listed here. Versions follow [Semantic Versioning](https://semver.org).
 
-## [1.0.0] - Unreleased
+## [1.0.0] - 2026-10-22
 
 The first release: a free, complete merger, for the Mac App Store and as a download from tang-spark.no.
 
