@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Builds the Mac App Store version of Spolo (the AppStore configuration).
 #
-#   scripts/appstore.sh                 # signed installer package in build/appstore
+#   scripts/appstore.sh                 # signed installer package in build/appstore.noindex
 #   scripts/appstore.sh upload          # the same, sent to App Store Connect
 #   scripts/appstore.sh upload 1.0.1 2  # with a version and build number other than project.yml's
 #
@@ -15,7 +15,7 @@ destination=${1:-export}
 version=${2:-$(sed -nE 's/^ *MARKETING_VERSION: "?([^"]*)"?$/\1/p' project.yml)}
 build=${3:-$(sed -nE 's/^ *CURRENT_PROJECT_VERSION: "?([^"]*)"?$/\1/p' project.yml)}
 team=${TEAM_ID:-X933P26489}
-out=build/appstore
+out=build/appstore.noindex
 rm -rf "$out" && mkdir -p "$out"
 
 echo "==> Archiving Spolo $version ($build) for the App Store"

@@ -119,7 +119,7 @@ final class Project {
         var added: [Clip] = []
         for url in files {
             let bookmark = try? url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-            added.append(Clip(id: UUID(), url: url, bookmark: bookmark, added: nextAdded))
+            added.append(Clip(id: UUID(), url: url, bookmark: bookmark, edits: Self.newEdits, added: nextAdded))
             nextAdded += 1
         }
         change("Add Clips") { clips += added }
@@ -131,12 +131,19 @@ final class Project {
     func addImported(_ urls: [URL]) {
         var added: [Clip] = []
         for url in urls {
-            added.append(Clip(id: UUID(), url: url, bookmark: nil, added: nextAdded, imported: true))
+            added.append(Clip(id: UUID(), url: url, bookmark: nil, edits: Self.newEdits, added: nextAdded, imported: true))
             nextAdded += 1
         }
         change("Add Clips") { clips += added }
         selection = Set(added.map(\.id))
         read(added)
+    }
+
+    /// Edits a newly added clip starts with: the photo duration from Settings.
+    private static var newEdits: ClipEdits {
+        var edits = ClipEdits()
+        edits.photoDuration = Preference.defaultPhotoDuration
+        return edits
     }
 
     func removeSelection() { remove(selection) }
@@ -282,7 +289,8 @@ final class Project {
     private func restore() {
         restoring = true
         defer { restoring = false }
-        guard let data = try? Data(contentsOf: Self.sessionFile),
+        guard UserDefaults.standard.bool(forKey: Preference.reopenClips),
+              let data = try? Data(contentsOf: Self.sessionFile),
               let saved = try? JSONDecoder().decode(Saved.self, from: data) else {
             cleanImports()
             return

@@ -26,18 +26,10 @@ struct ContentView: View {
         }
         .frame(minWidth: 760, minHeight: 520)
         .navigationSubtitle(subtitle)
-        .toolbar { toolbar }
+        .modifier(WindowToolbar(project: project, exporter: exporter, showInspector: $showInspector))
         .inspector(isPresented: Binding(get: { showInspector && !project.clips.isEmpty }, set: { showInspector = $0 })) {
             InspectorView(project: project)
                 .inspectorColumnWidth(min: 250, ideal: 280, max: 380)
-                .toolbar {
-                    ToolbarItem {
-                        Button { showInspector.toggle() } label: {
-                            Label("Inspector", systemImage: "sidebar.trailing")
-                        }
-                        .help(Text("Show or hide the inspector"))
-                    }
-                }
         }
         .onDrop(of: [.fileURL], isTargeted: $dropTargeted, perform: drop)
         .overlay {
@@ -96,54 +88,6 @@ struct ContentView: View {
     private var subtitle: Text {
         guard !project.clips.isEmpty else { return Text(verbatim: "") }
         return Text("^[\(project.clips.count) Clip](inflect: true)") + Text(verbatim: " · " + TimeText.short(project.duration))
-    }
-
-    @ToolbarContentBuilder private var toolbar: some ToolbarContent {
-        ToolbarItem(placement: .navigation) {
-            Menu {
-                Button("Add…", action: project.chooseFiles)
-                Button("Add from Photos…") { project.showPhotosPicker = true }
-            } label: {
-                Label("Add", systemImage: "plus")
-            } primaryAction: {
-                project.chooseFiles()
-            }
-            .help(Text("Add photos and videos"))
-        }
-        ToolbarItemGroup {
-            Menu {
-                Button("Order Added") { project.sort(.added) }
-                Button("Date Taken") { project.sort(.dateTaken) }
-                Button("File Name") { project.sort(.name) }
-            } label: {
-                Label("Sort By", systemImage: "arrow.up.arrow.down")
-            }
-            .help(Text("Sort the clips"))
-            .disabled(project.clips.count < 2)
-
-            Picker("Shape", selection: Binding(get: { project.layout.shape }, set: { shape in
-                project.setLayout("Change Shape") { $0.shape = shape }
-            })) {
-                ForEach(FrameShape.allCases, id: \.self) { shape in
-                    if let name = shape.ratioName { Text(verbatim: name).tag(shape) } else { Text("Auto").tag(shape) }
-                }
-            }
-            .pickerStyle(.menu)
-            .help(Text("Shape of the video"))
-
-            Picker("Fill", selection: Binding(get: { project.layout.fill }, set: { fill in
-                project.setLayout("Change Fill") { $0.fill = fill }
-            })) {
-                Text("Fit").tag(FillMode.fit)
-                Text("Fill").tag(FillMode.fill)
-            }
-            .pickerStyle(.segmented)
-            .help(Text("Fit with black bars, or fill and crop"))
-        }
-        ToolbarItem {
-            Button("Export…") { project.showExport = true }
-                .disabled(!project.canExport || exporter.isRunning)
-        }
     }
 
     private func drop(_ providers: [NSItemProvider]) -> Bool {

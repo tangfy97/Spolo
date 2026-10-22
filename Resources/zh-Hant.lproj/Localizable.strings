@@ -9,12 +9,10 @@
 "Order Added" = "加入順序";
 "Date Taken" = "拍攝日期";
 "File Name" = "檔案名稱";
-"Shape" = "畫面";
-"Shape of the video" = "影片的畫面比例";
+"Shape" = "比例";
 "Auto" = "自動";
 "Fit" = "符合";
 "Fill" = "填滿";
-"Fit with black bars, or fill and crop" = "符合並加上黑邊，或填滿並裁切";
 "Export…" = "匯出…";
 "Inspector" = "檢閱器";
 "Show or hide the inspector" = "顯示或隱藏檢閱器";
@@ -27,7 +25,6 @@
 "Remove" = "移除";
 
 /* Inspector */
-"No Selection" = "未選取";
 "Videos" = "影片";
 "Photos" = "照片";
 "Start" = "開頭";
@@ -47,7 +44,7 @@
 "Trim" = "修剪";
 "Change Speed" = "更改速度";
 "Change Duration" = "更改長度";
-"Change Shape" = "更改畫面";
+"Change Shape" = "更改比例";
 "Change Fill" = "更改填滿方式";
 
 /* Export */
@@ -76,3 +73,14 @@
 "Support & Privacy" = "支援與隱私權";
 "Contact Support" = "聯絡支援";
 "Check for a New Version…" = "檢查新版本…";
+
+/* Toolbar, inspector and Settings */
+"Frame" = "畫面";
+"Shape of the video, and fit with black bars or fill and crop" = "影片的畫面比例，以及加上黑邊符合或填滿裁切";
+"Clips" = "片段";
+"Length" = "長度";
+"Photo Duration" = "照片長度";
+"Reopen Last Clips at Launch" = "啟動時重新打開上次的片段";
+"Export" = "匯出";
+"Show in Finder When Done" = "完成後在 Finder 中顯示";
+"Scale" = "縮放";

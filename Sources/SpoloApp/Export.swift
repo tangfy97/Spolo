@@ -34,7 +34,12 @@ final class ExportController {
                         self.state = .running(progress: value, remaining: remaining)
                     }
                 }
-                if self.exporter === exporter { state = .done(url) }
+                if self.exporter === exporter {
+                    state = .done(url)
+                    if UserDefaults.standard.bool(forKey: Preference.revealAfterExport) {
+                        NSWorkspace.shared.activateFileViewerSelecting([url])
+                    }
+                }
             } catch is CancellationError {
                 if self.exporter === exporter { state = .idle }
             } catch {
@@ -59,8 +64,8 @@ struct ExportSheet: View {
     let project: Project
     let controller: ExportController
     @Environment(\.dismiss) private var dismiss
-    @AppStorage("format") private var format = ExportFormat.mp4
-    @AppStorage("quality") private var quality = ExportQuality.original
+    @AppStorage(Preference.format) private var format = ExportFormat.mp4
+    @AppStorage(Preference.quality) private var quality = ExportQuality.original
 
     private var segments: [Segment] { project.usable.map(\.segment) }
 

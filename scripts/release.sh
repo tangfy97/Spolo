@@ -89,6 +89,7 @@ fi
 lsregister=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
 $lsregister -u "$PWD/$app" 2>/dev/null || true
 $lsregister -u "$PWD/build/DerivedData.noindex/Build/Products/Release/Spolo.app" 2>/dev/null || true
+rm -rf build/DerivedData.noindex/Build/Products/Release/Spolo.app
 rm -rf "$app"
 (cd "$out" && shasum -a 256 "Spolo-$version.dmg" "Spolo-$version.zip" | tee SHA256SUMS)
 echo "Done: $out/Spolo-$version.dmg"

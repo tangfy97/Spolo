@@ -2,6 +2,14 @@
 
 All notable changes to Spolo are listed here. Versions follow [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+
+- A quieter toolbar: flat icons without capsules, with Shape and Fit or Fill together in one Frame menu.
+- Settings (⌘,): the duration for new photos, whether the last clips reopen at launch, and the export format, quality and Show in Finder when done.
+- With no clip selected, the inspector shows the merged video: shape, scaling, clip count, length and size.
+- A + tile at the end of the filmstrip; Delete removes and ⌘A selects all clips once the filmstrip is clicked.
+- Development builds no longer leave extra copies of Spolo for Spotlight, Launchpad and Open With to find.
+
 ## [1.0.0] - 2026-10-22
 
 The first release: a free, complete merger, for the Mac App Store and as a download from tang-spark.no.

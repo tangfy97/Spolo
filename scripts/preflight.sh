@@ -29,14 +29,15 @@ check "no in-app purchase code in 1.0" sh -c '! grep -rqE "import StoreKit|Produ
 xcodegen generate --quiet
 for config in Release AppStore; do
   echo "==> $config build"
+  mkdir -p build/preflight.noindex
   if ! xcodebuild -project Spolo.xcodeproj -scheme Spolo -configuration $config \
-      -derivedDataPath build/preflight -destination 'generic/platform=macOS' \
-      CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= build -quiet >build/preflight-$config.log 2>&1; then
-    fail "build failed (see build/preflight-$config.log)"
+      -derivedDataPath build/preflight.noindex -destination 'generic/platform=macOS' \
+      CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= build -quiet >build/preflight.noindex/$config.log 2>&1; then
+    fail "build failed (see build/preflight.noindex/$config.log)"
     continue
   fi
   pass "builds without errors"
-  app=build/preflight/Build/Products/$config/Spolo.app
+  app=build/preflight.noindex/Build/Products/$config/Spolo.app
   plist=$app/Contents/Info.plist
   value() { /usr/libexec/PlistBuddy -c "Print :$1" "$plist" 2>/dev/null; }
 
@@ -68,7 +69,9 @@ for config in Release AppStore; do
     links=$(strings $app/Contents/MacOS/Spolo)
     [[ $links == *"?installed="* ]] && pass "Help menu links to the download page" || fail "download page link missing"
   fi
+  # Leave no checked copy behind for Spotlight, Launchpad and Open With to find.
   /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -u "$PWD/$app" 2>/dev/null
+  rm -rf $app
 done
 
 echo

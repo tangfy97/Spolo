@@ -12,10 +12,8 @@ struct InspectorView: View {
 
     var body: some View {
         if project.selection.isEmpty {
-            Text("No Selection")
-                .font(.title3)
-                .foregroundStyle(.tertiary)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Form { mergedVideo }
+                .formStyle(.grouped)
         } else {
             Form {
                 header
@@ -39,6 +37,32 @@ struct InspectorView: View {
                 }
             }
             .formStyle(.grouped)
+        }
+    }
+
+    /// With no clip selected, the inspector shows the merged video as a whole.
+    @ViewBuilder private var mergedVideo: some View {
+        let size = Timeline.renderSize(project.usable.map(\.segment), layout: project.layout)
+        Section("Merged Video") {
+            Picker("Shape", selection: Binding(get: { project.layout.shape }, set: { shape in
+                project.setLayout("Change Shape") { $0.shape = shape }
+            })) {
+                ForEach(FrameShape.allCases, id: \.self) { shape in
+                    if let name = shape.ratioName { Text(verbatim: name).tag(shape) } else { Text("Auto").tag(shape) }
+                }
+            }
+            Picker("Scale", selection: Binding(get: { project.layout.fill }, set: { fill in
+                project.setLayout("Change Fill") { $0.fill = fill }
+            })) {
+                Text("Fit").tag(FillMode.fit)
+                Text("Fill").tag(FillMode.fill)
+            }
+            .pickerStyle(.segmented)
+        }
+        Section {
+            LabeledContent("Clips") { Text(verbatim: "\(project.usable.count)").monospacedDigit() }
+            LabeledContent("Length") { Text(verbatim: TimeText.short(project.duration)).monospacedDigit() }
+            LabeledContent("Size") { Text(verbatim: "\(Int(size.width)) × \(Int(size.height))").monospacedDigit() }
         }
     }
 

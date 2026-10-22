@@ -12,7 +12,7 @@ A native macOS app that merges photos and videos into one video, entirely on you
 - No watermark, and no limit on clip count or length; videos are read frame by frame, never loaded into memory
 - Mixed HDR and SDR, clips without sound, variable frame rates and phone videos shot upright all come out right
 - MKV, WebM and other formats macOS can't read stay visible, greyed out, instead of silently disappearing
-- The last session comes back when you reopen Spolo, and every change can be undone
+- The last session comes back when you reopen Spolo, and every change can be undone; Settings (⌘,) hold the defaults for new photos and exports
 - English, English (UK), Simplified Chinese and Traditional Chinese, following the system language
 - Runs in the App Sandbox with no network access; no accounts, no analytics ([privacy policy](PRIVACY.md))
 

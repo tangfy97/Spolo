@@ -6,6 +6,7 @@ struct Filmstrip: View {
     @Bindable var project: Project
     let onSelect: (UUID) -> Void
     @State private var dragged: UUID?
+    @FocusState private var focused: Bool
     private static let end = "end"
 
     var body: some View {
@@ -19,6 +20,7 @@ struct Filmstrip: View {
                                 ClipTile(project: project, clip: clip, selected: project.selection.contains(clip.id))
                                     .id(clip.id)
                                     .onTapGesture {
+                                        focused = true
                                         project.click(clip.id)
                                         onSelect(clip.id)
                                     }
@@ -41,6 +43,7 @@ struct Filmstrip: View {
                                         Button("Remove") { project.remove(ids) }
                                     }
                             }
+                            AddTile(action: project.chooseFiles)
                         }
                         .padding(.horizontal, 12)
                         .padding(.vertical, 10)
@@ -56,7 +59,16 @@ struct Filmstrip: View {
         .frame(height: 124)
         .background(.background)
         .contentShape(Rectangle())
-        .onTapGesture { project.selection = [] }
+        .onTapGesture {
+            focused = true
+            project.selection = []
+        }
+        // Delete and Select All act on the clips once the filmstrip has been clicked.
+        .focusable()
+        .focusEffectDisabled()
+        .focused($focused)
+        .onDeleteCommand(perform: project.removeSelection)
+        .onCommand(#selector(NSResponder.selectAll(_:)), perform: project.selectAll)
     }
 }
 
@@ -79,6 +91,30 @@ private struct Reorder: DropDelegate {
         dragged = nil
         project.endGesture("Move Clip")
         return true
+    }
+}
+
+/// The last tile in the filmstrip: one more place to add clips.
+private struct AddTile: View {
+    let action: () -> Void
+    @State private var hovering = false
+
+    var body: some View {
+        Button(action: action) {
+            RoundedRectangle(cornerRadius: 6)
+                .strokeBorder(style: StrokeStyle(lineWidth: 1.5, dash: [5, 4]))
+                .foregroundStyle(hovering ? .secondary : .tertiary)
+                .overlay {
+                    Image(systemName: "plus")
+                        .font(.title2.weight(.light))
+                        .foregroundStyle(hovering ? .secondary : .tertiary)
+                }
+                .frame(width: 80, height: 80)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .onHover { hovering = $0 }
+        .help(Text("Add photos and videos"))
     }
 }
 

@@ -3,8 +3,14 @@ import SwiftUI
 @main
 struct SpoloApp: App {
     @NSApplicationDelegateAdaptor private var delegate: AppDelegate
-    @State private var project = Project()
+    @State private var project: Project
     @State private var exporter = ExportController()
+
+    init() {
+        // Defaults first, since the project reads them as it restores the last session.
+        Preference.register()
+        _project = State(initialValue: Project())
+    }
 
     var body: some Scene {
         Window(Text(verbatim: "Spolo"), id: "main") {
@@ -53,6 +59,10 @@ struct SpoloApp: App {
                 Link("Check for a New Version…", destination: Links.newVersion)
                 #endif
             }
+        }
+
+        Settings {
+            SettingsView()
         }
     }
 }
