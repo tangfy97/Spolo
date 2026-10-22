@@ -38,7 +38,7 @@ scripts/test-merge.sh     # merges generated test media and checks every frame (
 | `scripts/icon.swift` | Renders the app icon into the asset catalog |
 | `scripts/test-merge.sh`, `scripts/test-photos.swift` | Test media and end-to-end checks of the merge engine |
 
-How the engine works: [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). The product plan, including what comes in Pro: [docs/PLAN.md](docs/PLAN.md).
+Releasing and App Store Connect values: [docs/APP_STORE.md](docs/APP_STORE.md). How the engine works: [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). The product plan, including what comes in Pro: [docs/PLAN.md](docs/PLAN.md).
 
 ## License
 
