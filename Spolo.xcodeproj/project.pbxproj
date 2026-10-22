@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0116B644D84C2AC1B1AA45FA /* PhotosImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3279EC227C755D5A28C171 /* PhotosImport.swift */; };
+		10EA4AD337FB723B88F9E136 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77290D9BFEF9FC9C784076B6 /* Timeline.swift */; };
+		174351C0300C863A6C12D73C /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59295F76F2D45D23D076AD /* Links.swift */; };
+		1FD711E8548BE51405A103C4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735623142082F3929C4A16D /* Project.swift */; };
+		2007FE4C571502AAE7FFAA3D /* Exporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C34EC32764FEA36EC33FE8 /* Exporter.swift */; };
+		20766FC8E6DADB160683FCB2 /* Filmstrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A423D461B215E13D7937181 /* Filmstrip.swift */; };
+		3720ED3EC6816F4EB0027235 /* Compositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F088B1C2A8BF8E24B1587 /* Compositor.swift */; };
+		38BD572047FF05861A969946 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5609268E373ABAFB7672B7 /* Media.swift */; };
+		3DFB27E08E1F9C5C35B1CA65 /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77989409B166BCAE7054E45D /* Carrier.swift */; };
+		3E2B75E3D37CF125E95F8936 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FACFE8182A941DAE1C4BB /* PrivacyInfo.xcprivacy */; };
+		5B5CD8C09234014DC6A29848 /* Export.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C0A5F6430F4FBCD74A3906 /* Export.swift */; };
+		7EB0E25CB6A1B8023AD80517 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B76B80BB643A66E68E1EF45 /* Preview.swift */; };
+		7F84158556AAB71A0B2FCBF0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F00B235301A4093675BCC21A /* Localizable.strings */; };
+		BC665E4F99BBCC3990FF80ED /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18538EEDF0328E843ED471A /* InspectorView.swift */; };
+		D55192283297EF4A57E5DF1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED332FEF3D5D0E6D4D56494D /* Assets.xcassets */; };
+		DF8016B1F8622D98FC825F2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B023BD8CCA037444D4C53 /* ContentView.swift */; };
+		EAC45777C183E69045018D07 /* SpoloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622138D840EBA009394E49E4 /* SpoloApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B76B80BB643A66E68E1EF45 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		4A7FACFE8182A941DAE1C4BB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		5E4F9FB295E9CD635C41A71B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		61C34EC32764FEA36EC33FE8 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
+		622138D840EBA009394E49E4 /* SpoloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoloApp.swift; sourceTree = "<group>"; };
+		77290D9BFEF9FC9C784076B6 /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		77989409B166BCAE7054E45D /* Carrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carrier.swift; sourceTree = "<group>"; };
+		8874511EA429DDCFC6634E4A /* Spolo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spolo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		969B023BD8CCA037444D4C53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9A423D461B215E13D7937181 /* Filmstrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filmstrip.swift; sourceTree = "<group>"; };
+		9A59295F76F2D45D23D076AD /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		B18538EEDF0328E843ED471A /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		B25F088B1C2A8BF8E24B1587 /* Compositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compositor.swift; sourceTree = "<group>"; };
+		C6C0A5F6430F4FBCD74A3906 /* Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Export.swift; sourceTree = "<group>"; };
+		C84A3B8F24C4A9CF471D5914 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DB5609268E373ABAFB7672B7 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		DDED1DACF575ADA8FA93155B /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E683921339D28325C6504A1C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ED332FEF3D5D0E6D4D56494D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F735623142082F3929C4A16D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FE3279EC227C755D5A28C171 /* PhotosImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosImport.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		05BED05CBC26683F927247D8 /* SpoloCore */ = {
+			isa = PBXGroup;
+			children = (
+				77989409B166BCAE7054E45D /* Carrier.swift */,
+				B25F088B1C2A8BF8E24B1587 /* Compositor.swift */,
+				61C34EC32764FEA36EC33FE8 /* Exporter.swift */,
+				DB5609268E373ABAFB7672B7 /* Media.swift */,
+				77290D9BFEF9FC9C784076B6 /* Timeline.swift */,
+			);
+			name = SpoloCore;
+			path = Sources/SpoloCore;
+			sourceTree = "<group>";
+		};
+		5D733BDE25C01B1A5EA521A3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ED332FEF3D5D0E6D4D56494D /* Assets.xcassets */,
+				4A7FACFE8182A941DAE1C4BB /* PrivacyInfo.xcprivacy */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7A734C8865E9940B5161FBC6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F00B235301A4093675BCC21A /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9446AF9AD5FD26076F1B9D75 = {
+			isa = PBXGroup;
+			children = (
+				5D733BDE25C01B1A5EA521A3 /* App */,
+				7A734C8865E9940B5161FBC6 /* Resources */,
+				984617296F8BC3C1DABBA105 /* SpoloApp */,
+				05BED05CBC26683F927247D8 /* SpoloCore */,
+				BB6434A9F048020640960B27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		984617296F8BC3C1DABBA105 /* SpoloApp */ = {
+			isa = PBXGroup;
+			children = (
+				969B023BD8CCA037444D4C53 /* ContentView.swift */,
+				C6C0A5F6430F4FBCD74A3906 /* Export.swift */,
+				9A423D461B215E13D7937181 /* Filmstrip.swift */,
+				B18538EEDF0328E843ED471A /* InspectorView.swift */,
+				9A59295F76F2D45D23D076AD /* Links.swift */,
+				FE3279EC227C755D5A28C171 /* PhotosImport.swift */,
+				0B76B80BB643A66E68E1EF45 /* Preview.swift */,
+				F735623142082F3929C4A16D /* Project.swift */,
+				622138D840EBA009394E49E4 /* SpoloApp.swift */,
+			);
+			name = SpoloApp;
+			path = Sources/SpoloApp;
+			sourceTree = "<group>";
+		};
+		BB6434A9F048020640960B27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8874511EA429DDCFC6634E4A /* Spolo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57D3B1B5BAD45C03D1F244C5 /* Spolo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF0FFD911A7C70C9B565EBAE /* Build configuration list for PBXNativeTarget "Spolo" */;
+			buildPhases = (
+				68F3957B15B84B97ECA2100B /* Sources */,
+				21A4A3A2C79874FBE1AF7B4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spolo;
+			packageProductDependencies = (
+			);
+			productName = Spolo;
+			productReference = 8874511EA429DDCFC6634E4A /* Spolo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBD033B5413ADF90C58FEBB1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					57D3B1B5BAD45C03D1F244C5 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4BDDDDF33EFDC59720092F1E /* Build configuration list for PBXProject "Spolo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"en-GB",
+				"zh-Hans",
+				"zh-Hant",
+			);
+			mainGroup = 9446AF9AD5FD26076F1B9D75;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BB6434A9F048020640960B27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57D3B1B5BAD45C03D1F244C5 /* Spolo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21A4A3A2C79874FBE1AF7B4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D55192283297EF4A57E5DF1C /* Assets.xcassets in Resources */,
+				7F84158556AAB71A0B2FCBF0 /* Localizable.strings in Resources */,
+				3E2B75E3D37CF125E95F8936 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68F3957B15B84B97ECA2100B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DFB27E08E1F9C5C35B1CA65 /* Carrier.swift in Sources */,
+				3720ED3EC6816F4EB0027235 /* Compositor.swift in Sources */,
+				DF8016B1F8622D98FC825F2F /* ContentView.swift in Sources */,
+				5B5CD8C09234014DC6A29848 /* Export.swift in Sources */,
+				2007FE4C571502AAE7FFAA3D /* Exporter.swift in Sources */,
+				20766FC8E6DADB160683FCB2 /* Filmstrip.swift in Sources */,
+				BC665E4F99BBCC3990FF80ED /* InspectorView.swift in Sources */,
+				174351C0300C863A6C12D73C /* Links.swift in Sources */,
+				38BD572047FF05861A969946 /* Media.swift in Sources */,
+				0116B644D84C2AC1B1AA45FA /* PhotosImport.swift in Sources */,
+				7EB0E25CB6A1B8023AD80517 /* Preview.swift in Sources */,
+				1FD711E8548BE51405A103C4 /* Project.swift in Sources */,
+				EAC45777C183E69045018D07 /* SpoloApp.swift in Sources */,
+				10EA4AD337FB723B88F9E136 /* Timeline.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F00B235301A4093675BCC21A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E4F9FB295E9CD635C41A71B /* en */,
+				DDED1DACF575ADA8FA93155B /* en-GB */,
+				E683921339D28325C6504A1C /* zh-Hans */,
+				C84A3B8F24C4A9CF471D5914 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1929F5C8B90101539F4439D2 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Spolo.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spolo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 TangSpark. Apache License 2.0.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.feiyangtang.Spolo;
+				PRODUCT_NAME = Spolo;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
+			};
+			name = AppStore;
+		};
+		30174DD5220BAE457501ED90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Spolo.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spolo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 TangSpark. Apache License 2.0.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.feiyangtang.Spolo;
+				PRODUCT_NAME = Spolo;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		80E5C6A6E0DB964A613EA05C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Spolo.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Spolo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 TangSpark. Apache License 2.0.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.feiyangtang.Spolo;
+				PRODUCT_NAME = Spolo;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A6DE2092E43D94BC03104288 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AFBD2B779DA4C8B8E1C3E991 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = AppStore;
+		};
+		EDFA6F680C08F5B9FC81941E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BDDDDF33EFDC59720092F1E /* Build configuration list for PBXProject "Spolo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBD2B779DA4C8B8E1C3E991 /* AppStore */,
+				EDFA6F680C08F5B9FC81941E /* Debug */,
+				A6DE2092E43D94BC03104288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = AppStore;
+		};
+		CF0FFD911A7C70C9B565EBAE /* Build configuration list for PBXNativeTarget "Spolo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1929F5C8B90101539F4439D2 /* AppStore */,
+				80E5C6A6E0DB964A613EA05C /* Debug */,
+				30174DD5220BAE457501ED90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = AppStore;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBD033B5413ADF90C58FEBB1 /* Project object */;
+}

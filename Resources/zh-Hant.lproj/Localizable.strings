@@ -1,0 +1,78 @@
+/* Window and toolbar */
+"Drop Photos and Videos Here" = "將照片和影片拖到這裡";
+"Add" = "加入";
+"Add…" = "加入…";
+"Add from Photos…" = "從「照片」加入…";
+"Add photos and videos" = "加入照片和影片";
+"Sort By" = "排序方式";
+"Sort the clips" = "排序片段";
+"Order Added" = "加入順序";
+"Date Taken" = "拍攝日期";
+"File Name" = "檔案名稱";
+"Shape" = "畫面";
+"Shape of the video" = "影片的畫面比例";
+"Auto" = "自動";
+"Fit" = "符合";
+"Fill" = "填滿";
+"Fit with black bars, or fill and crop" = "符合並加上黑邊，或填滿並裁切";
+"Export…" = "匯出…";
+"Inspector" = "檢閱器";
+"Show or hide the inspector" = "顯示或隱藏檢閱器";
+"^[%lld Clip](inflect: true)" = "%lld 個片段";
+
+/* Filmstrip */
+"This format isn’t supported yet" = "尚不支援此格式";
+"The file can’t be found" = "找不到此檔案";
+"Show in Finder" = "在 Finder 中顯示";
+"Remove" = "移除";
+
+/* Inspector */
+"No Selection" = "未選取";
+"Videos" = "影片";
+"Photos" = "照片";
+"Start" = "開頭";
+"End" = "結尾";
+"Speed" = "速度";
+"Mute" = "靜音";
+"Duration" = "長度";
+"%@ s" = "%@ 秒";
+"Rotate" = "旋轉";
+"Rotate Left" = "向左旋轉";
+"Rotate Right" = "向右旋轉";
+
+/* Undo */
+"Add Clips" = "加入片段";
+"Move Clip" = "移動片段";
+"Sort" = "排序";
+"Trim" = "修剪";
+"Change Speed" = "更改速度";
+"Change Duration" = "更改長度";
+"Change Shape" = "更改畫面";
+"Change Fill" = "更改填滿方式";
+
+/* Export */
+"Format" = "格式";
+"Quality" = "品質";
+"Original" = "原始畫質";
+"High" = "高";
+"Smaller File" = "較小檔案";
+"Size" = "尺寸";
+"Fast export, no re-encoding" = "快速匯出，不重新編碼";
+"Cancel" = "取消";
+"Merged Video" = "合併的影片";
+"Exporting…" = "正在匯出…";
+"About %@ remaining" = "大約還剩 %@";
+"Share…" = "分享…";
+"Close" = "關閉";
+"There is nothing to merge." = "沒有可合併的片段。";
+"“%@” can’t be read." = "無法讀取「%@」。";
+"Couldn’t create the composition." = "無法建立合成。";
+"Couldn’t prepare photos." = "無法準備照片。";
+"This combination of clips can’t be exported." = "此組片段無法匯出。";
+"The export failed." = "匯出失敗。";
+
+/* Help menu */
+"Spolo Website" = "Spolo 官方網站";
+"Support & Privacy" = "支援與隱私權";
+"Contact Support" = "聯絡支援";
+"Check for a New Version…" = "檢查新版本…";
