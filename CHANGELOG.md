@@ -2,12 +2,15 @@
 
 All notable changes to Spolo are listed here. Versions follow [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [1.0.1] - 2026-10-22
+
+A cleaner window, with undo and a way back always in reach.
 
 - A quieter toolbar without capsules: Undo and Redo beside the title, then Add, Sort, the frame (for example “16:9 · Fill”) and Export as labelled buttons, and the inspector toggle.
 - Start Over (⌘N, or Remove All in the filmstrip's menu) goes back to the empty window; Undo brings the clips back. Esc clears the selection.
 - No Settings window: the export sheet remembers the last format and quality, and everything else is in the window.
 - The empty window's Add from Photos… button is no longer cut off.
+- Files opened with Spolo while it starts now appear in the window straight away.
 - With no clip selected, the inspector shows the merged video: shape, scaling, clip count, length and size.
 - A + tile at the end of the filmstrip; Delete removes and ⌘A selects all clips once the filmstrip is clicked.
 - Development builds no longer leave extra copies of Spolo for Spotlight, Launchpad and Open With to find.

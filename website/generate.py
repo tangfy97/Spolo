@@ -59,7 +59,7 @@ COPY = {
         "start": [
             "Drag photos and videos onto the Spolo window, or choose File › Add… or Add from Photos….",
             "Drag the clips into order, or use Sort By in the toolbar. Click a clip to trim it, change its speed, mute or rotate it in the inspector.",
-            "Pick a shape and Fit or Fill in the toolbar, then choose File › Export….",
+            "Pick a shape and Fit or Fill with the frame button in the toolbar (it reads Auto · Fit at first), then click Export.",
         ],
         "faq": [
             ("Which formats can Spolo open?", "Anything macOS can play or show: MOV, MP4 and M4V video in H.264, HEVC or ProRes, and JPEG, PNG, HEIC, TIFF, WebP, AVIF and RAW photos. macOS can't read MKV, WebM, AVI and a few other formats; Spolo shows them greyed out rather than leaving them out silently."),
@@ -67,6 +67,7 @@ COPY = {
             ("What do Original, High and Smaller File mean?", "Original keeps the full size, up to 4K. High is up to 1080p in H.264, which plays everywhere. Smaller File is up to 1080p in HEVC at a lower bit rate."),
             ("What happens to HDR video?", "Spolo exports in standard dynamic range, so HDR and SDR clips look the same side by side. macOS tone-maps the HDR clips."),
             ("Does Spolo copy my files?", "No. It remembers where your clips are, so they're there when you open Spolo again, but it doesn't copy them. Items added from Photos are the exception: they have no file of their own, so Spolo keeps a copy in its own folder until they're no longer among your clips."),
+            ("How do I start again with an empty window?", "Choose File › Start Over (⌘N). Every change can be undone with the arrow beside the title, Start Over included."),
             ("Is there a limit or a watermark?", "No. There's no limit on the number of clips or their length, and no watermark."),
             ("How do I update?", "The Mac App Store version updates through the App Store. In the downloaded version, choose Help › Check for a New Version…; it opens this website in your browser, because Spolo itself never goes online."),
             ("How do I uninstall it?", "Quit Spolo and drag it from Applications to the Bin. Its last session and any items added from Photos are in ~/Library/Containers/com.feiyangtang.Spolo, which you can delete too."),
@@ -87,7 +88,10 @@ COPY = {
             "You are responsible for having the rights to the photos and videos you merge. Mac App Store downloads are also covered by Apple's standard licence agreement.",
         ],
         "notes_title": "Release notes",
-        "notes": [(f"Version {VERSION}", "22 October 2026", "First release: merge photos and videos into one MP4 or MOV; trim, speed, mute and rotate; five shapes with fit or fill; fast export without re-encoding; four languages.")],
+        "notes": [
+            ("Version 1.0.1", "22 October 2026", "A cleaner window: Undo and Redo beside the title, labelled toolbar buttons, and Start Over to go back to an empty window. With no clip selected, the inspector shows the merged video. Files opened while Spolo starts now appear straight away."),
+            ("Version 1.0.0", "22 October 2026", "First release: merge photos and videos into one MP4 or MOV; trim, speed, mute and rotate; five shapes with fit or fill; fast export without re-encoding; four languages."),
+        ],
         "contact_title": "Contact",
         "contact": "Write to <a href=\"mailto:support@tang-spark.no\">support@tang-spark.no</a>. It helps to include your macOS version and the Spolo version (Spolo menu › About Spolo).",
         "footer_support": "Support & privacy",
@@ -123,7 +127,7 @@ COPY = {
         "start": [
             "把照片和视频拖到 Spolo 窗口里，或者选择“文件 › 添加…”或“从‘照片’添加…”。",
             "拖动片段排好顺序，或用工具栏里的“排序方式”。点按一段片段，在检查器里修剪、调速、静音或旋转。",
-            "在工具栏里选好画面比例和“适合”或“填满”，然后选择“文件 › 导出…”。",
+            "用工具栏里的画面按钮（一开始显示“自动 · 适合”）选好比例和“适合”或“填满”，然后点“导出”。",
         ],
         "faq": [
             ("Spolo 能打开哪些格式？", "macOS 能播放或显示的都可以：H.264、HEVC、ProRes 编码的 MOV、MP4、M4V 视频，以及 JPEG、PNG、HEIC、TIFF、WebP、AVIF 和 RAW 照片。MKV、WebM、AVI 等少数格式 macOS 读不了；Spolo 会把它们灰显出来，而不是悄悄丢掉。"),
@@ -131,6 +135,7 @@ COPY = {
             ("原画质、高、较小文件有什么区别？", "原画质保持原始尺寸，最高 4K。“高”最高 1080p、H.264 编码，到处都能播放。“较小文件”最高 1080p、HEVC 编码，码率更低。"),
             ("HDR 视频会怎样？", "Spolo 导出标准动态范围的视频，所以 HDR 和普通视频放在一起看起来一致。HDR 片段由 macOS 做色调映射。"),
             ("Spolo 会复制我的文件吗？", "不会。它只记住片段在哪里，下次打开时片段还在，但不会复制文件。从“照片”里添加的项目例外：它们没有自己的文件，所以 Spolo 会在自己的文件夹里保留一份副本，直到它们不再在片段里。"),
+            ("怎么清空，重新开始？", "选择“文件 › 从头开始”（⌘N）。每一步都可以用标题旁的箭头撤销，“从头开始”也一样。"),
             ("有数量限制或水印吗？", "没有。片段数量和时长都不限，也没有水印。"),
             ("怎么更新？", "Mac App Store 版本通过 App Store 更新。下载版请选择“帮助 › 检查新版本…”，它会在浏览器中打开这个网站，因为 Spolo 自己从不联网。"),
             ("怎么卸载？", "退出 Spolo，把它从“应用程序”拖到废纸篓。它的上次会话和从“照片”添加的项目在 ~/Library/Containers/com.feiyangtang.Spolo，也可以一起删除。"),
@@ -151,7 +156,10 @@ COPY = {
             "你需要拥有所合并照片和视频的相应权利。从 Mac App Store 下载的版本同时适用 Apple 的标准许可协议。",
         ],
         "notes_title": "更新说明",
-        "notes": [(f"版本 {VERSION}", "2026 年 10 月 22 日", "首次发布：把照片和视频合成一个 MP4 或 MOV；修剪、调速、静音、旋转；五种画面比例，适合或填满；片段一致时快速导出、不重新编码；四种语言。")],
+        "notes": [
+            ("版本 1.0.1", "2026 年 10 月 22 日", "更清爽的窗口：标题旁有撤销和重做，工具栏按钮带文字，“从头开始”可以回到空白窗口。没有选中片段时，检查器显示整个视频的设置。启动时打开的文件会马上显示出来。"),
+            ("版本 1.0.0", "2026 年 10 月 22 日", "首次发布：把照片和视频合成一个 MP4 或 MOV；修剪、调速、静音、旋转；五种画面比例，适合或填满；片段一致时快速导出、不重新编码；四种语言。"),
+        ],
         "contact_title": "联系",
         "contact": "请写信至 <a href=\"mailto:support@tang-spark.no\">support@tang-spark.no</a>。附上 macOS 版本和 Spolo 版本（Spolo 菜单 › 关于 Spolo）会很有帮助。",
         "footer_support": "支持与隐私",
@@ -187,7 +195,7 @@ COPY = {
         "start": [
             "把照片和影片拖到 Spolo 視窗裡，或選擇「檔案 › 加入…」或「從『照片』加入…」。",
             "拖移片段排好順序，或使用工具列中的「排序方式」。按一下片段，在檢閱器中修剪、調速、靜音或旋轉。",
-            "在工具列中選好畫面比例和「符合」或「填滿」，然後選擇「檔案 › 匯出…」。",
+            "用工具列中的畫面按鈕（一開始顯示「自動 · 符合」）選好比例和「符合」或「填滿」，然後按「匯出」。",
         ],
         "faq": [
             ("Spolo 能打開哪些格式？", "macOS 能播放或顯示的都可以：H.264、HEVC、ProRes 編碼的 MOV、MP4、M4V 影片，以及 JPEG、PNG、HEIC、TIFF、WebP、AVIF 和 RAW 照片。MKV、WebM、AVI 等少數格式 macOS 讀不了；Spolo 會把它們以灰色顯示，而不是悄悄略過。"),
@@ -195,6 +203,7 @@ COPY = {
             ("原始畫質、高、較小檔案有什麼不同？", "原始畫質保持原始尺寸，最高 4K。「高」最高 1080p、H.264 編碼，到處都能播放。「較小檔案」最高 1080p、HEVC 編碼，位元率更低。"),
             ("HDR 影片會怎樣？", "Spolo 匯出標準動態範圍的影片，所以 HDR 和一般影片放在一起看起來一致。HDR 片段由 macOS 做色調對應。"),
             ("Spolo 會複製我的檔案嗎？", "不會。它只記住片段在哪裡，下次打開時片段還在，但不會複製檔案。從「照片」加入的項目例外：它們沒有自己的檔案，所以 Spolo 會在自己的檔案夾中保留一份副本，直到它們不再在片段中。"),
+            ("怎麼清空，重新開始？", "選擇「檔案 › 從頭開始」（⌘N）。每一步都可以用標題旁的箭頭還原，「從頭開始」也一樣。"),
             ("有數量限制或浮水印嗎？", "沒有。片段數量和長度都不限，也沒有浮水印。"),
             ("怎麼更新？", "Mac App Store 版本透過 App Store 更新。下載版請選擇「輔助說明 › 檢查新版本…」，它會在瀏覽器中打開這個網站，因為 Spolo 本身從不連網。"),
             ("怎麼解除安裝？", "結束 Spolo，把它從「應用程式」拖到垃圾桶。它的上次工作階段和從「照片」加入的項目在 ~/Library/Containers/com.feiyangtang.Spolo，也可以一併刪除。"),
@@ -215,7 +224,10 @@ COPY = {
             "你需要擁有所合併照片和影片的相應權利。從 Mac App Store 下載的版本同時適用 Apple 的標準授權協議。",
         ],
         "notes_title": "版本說明",
-        "notes": [(f"版本 {VERSION}", "2026 年 10 月 22 日", "首次發佈：把照片和影片合成一個 MP4 或 MOV；修剪、調速、靜音、旋轉；五種畫面比例，符合或填滿；片段一致時快速匯出、不重新編碼；四種語言。")],
+        "notes": [
+            ("版本 1.0.1", "2026 年 10 月 22 日", "更清爽的視窗：標題旁有還原和重做，工具列按鈕附上文字，「從頭開始」可以回到空白視窗。沒有選取片段時，檢閱器顯示整部影片的設定。啟動時打開的檔案會馬上顯示。"),
+            ("版本 1.0.0", "2026 年 10 月 22 日", "首次發佈：把照片和影片合成一個 MP4 或 MOV；修剪、調速、靜音、旋轉；五種畫面比例，符合或填滿；片段一致時快速匯出、不重新編碼；四種語言。"),
+        ],
         "contact_title": "聯絡",
         "contact": "請寫信至 <a href=\"mailto:support@tang-spark.no\">support@tang-spark.no</a>。附上 macOS 版本和 Spolo 版本（Spolo 選單 › 關於 Spolo）會很有幫助。",
         "footer_support": "支援與隱私",

@@ -10,7 +10,8 @@ struct SpoloApp: App {
         Window(Text(verbatim: "Spolo"), id: "main") {
             ContentView(project: project, exporter: exporter)
                 .onAppear {
-                    delegate.onOpen = { urls in project.add(urls) }
+                    // Files opened at launch arrive while the window is still appearing; add them once it has.
+                    delegate.onOpen = { urls in Task { @MainActor in project.add(urls) } }
                     delegate.onQuit = { project.save() }
                 }
         }
