@@ -28,7 +28,7 @@ Spolo ships two ways from the same code: the **Mac App Store** (the `AppStore` b
 | Notarization profile `kvikkshot` | In the keychain, shared with Kvikkshot |
 | App Store distribution signing | Cloud-managed by Xcode |
 | Bundle ID `com.feiyangtang.Spolo` | Registered by Xcode on the first archive |
-| App record | Created 22 October 2026: Apple ID 6825929542; build 1.0.0 (1) attached; listing, price, availability, privacy and review notes filled in; not yet submitted for review |
+| App record | Created 22 October 2026: Apple ID 6825929542; build 1.0.0 (1) attached; listing, price, availability, privacy and review notes filled in; submitted for review 22 October 2026 |
 
 ## App Store Connect
 
