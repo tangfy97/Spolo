@@ -36,6 +36,7 @@ scripts/test-merge.sh     # merges generated test media and checks every frame (
 | `scripts/appstore.sh` | App Store build: signed installer package, and `upload` sends it to App Store Connect |
 | `scripts/publish-website.sh` | Copies the pages (and a notarized disk image) into the tang-spark.no site |
 | `scripts/icon.swift` | Renders the app icon into the asset catalog |
+| `scripts/sample-video.swift`, `scripts/storeshot.swift` | Sample footage and App Store screenshot composition |
 | `scripts/test-merge.sh`, `scripts/test-photos.swift` | Test media and end-to-end checks of the merge engine |
 
 Releasing and App Store Connect values: [docs/APP_STORE.md](docs/APP_STORE.md). How the engine works: [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). The product plan, including what comes in Pro: [docs/PLAN.md](docs/PLAN.md).
