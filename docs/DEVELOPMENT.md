@@ -46,8 +46,7 @@ Clips are joined without re-encoding (`AVAssetExportPresetPassthrough`) when all
 - The session is saved to `Session.json` in the app's container half a second after each change, with an app-scope security-scoped bookmark for each file, and restored on launch.
 - Items from Photos come from the system picker (no library permission) and are copied into `Imports/` in the container; imports no clip uses are deleted at the next launch.
 - The preview is an `AVPlayerView` playing the same composition at up to 1280 pixels, rebuilt 0.2 s after the last change.
-- The toolbar (`Toolbar.swift`) uses flat icon buttons; on macOS 26 each item's shared glass background is hidden with `sharedBackgroundVisibility(.hidden)`, so there are no capsules.
-- Settings (`SettingsView.swift`) are plain `UserDefaults` keys in `Preference`, shared with the export sheet.
+- The toolbar (`Toolbar.swift`) uses flat buttons (`FlatButtonStyle`); on macOS 26 each item's shared glass background is hidden with `sharedBackgroundVisibility(.hidden)`, so there are no capsules. Undo and Redo follow the window's undo manager through its notifications.
 - Xcode registers every app it builds with Launch Services, so the scripts build into `*.noindex` folders and leave only `build/Spolo.app` behind.
 
 ## Testing

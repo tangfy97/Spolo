@@ -67,6 +67,7 @@ struct ContentView: View {
                 Button("Add…", action: project.chooseFiles)
                 Button("Add from Photos…") { project.showPhotosPicker = true }
             }
+            .fixedSize()
         }
     }
 

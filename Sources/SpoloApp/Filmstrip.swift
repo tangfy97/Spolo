@@ -41,6 +41,7 @@ struct Filmstrip: View {
                                         }
                                         Divider()
                                         Button("Remove") { project.remove(ids) }
+                                        Button("Remove All", action: project.startOver)
                                     }
                             }
                             AddTile(action: project.chooseFiles)
@@ -68,6 +69,7 @@ struct Filmstrip: View {
         .focusEffectDisabled()
         .focused($focused)
         .onDeleteCommand(perform: project.removeSelection)
+        .onExitCommand { project.selection = [] }
         .onCommand(#selector(NSResponder.selectAll(_:)), perform: project.selectAll)
     }
 }

@@ -3,14 +3,8 @@ import SwiftUI
 @main
 struct SpoloApp: App {
     @NSApplicationDelegateAdaptor private var delegate: AppDelegate
-    @State private var project: Project
+    @State private var project = Project()
     @State private var exporter = ExportController()
-
-    init() {
-        // Defaults first, since the project reads them as it restores the last session.
-        Preference.register()
-        _project = State(initialValue: Project())
-    }
 
     var body: some Scene {
         Window(Text(verbatim: "Spolo"), id: "main") {
@@ -24,6 +18,10 @@ struct SpoloApp: App {
         .windowToolbarStyle(.unified)
         .commands {
             CommandGroup(replacing: .newItem) {
+                Button("Start Over", action: project.startOver)
+                    .keyboardShortcut("n")
+                    .disabled(project.clips.isEmpty)
+                Divider()
                 Button("Add…", action: project.chooseFiles)
                     .keyboardShortcut("o")
                 Button("Add from Photos…") { project.showPhotosPicker = true }
@@ -59,10 +57,6 @@ struct SpoloApp: App {
                 Link("Check for a New Version…", destination: Links.newVersion)
                 #endif
             }
-        }
-
-        Settings {
-            SettingsView()
         }
     }
 }

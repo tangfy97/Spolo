@@ -1,8 +1,8 @@
 import SwiftUI
 
-/// The window's toolbar: flat icons with a soft hover fill, a filled square for whatever is switched on,
-/// and a thin divider before the inspector toggle. macOS 26 would put each item in a glass capsule;
-/// that background is turned off so the toolbar stays quiet.
+/// The window's toolbar: Undo and Redo beside the title, then flat, labelled buttons with a soft hover fill,
+/// a divider, and the inspector toggle, filled while it is open. macOS 26 would put each item in a glass
+/// capsule; that background is turned off so the toolbar stays quiet.
 struct WindowToolbar: ViewModifier {
     @Bindable var project: Project
     let exporter: ExportController
@@ -17,6 +17,8 @@ struct WindowToolbar: ViewModifier {
     }
 
     @ToolbarContentBuilder private var items: some ToolbarContent {
+        ToolbarItem(placement: .navigation) { undo }
+        ToolbarItem(placement: .navigation) { redo }
         ToolbarItem(placement: .primaryAction) { add }
         ToolbarItem(placement: .primaryAction) { sort }
         ToolbarItem(placement: .primaryAction) { frame }
@@ -27,12 +29,32 @@ struct WindowToolbar: ViewModifier {
 
     @available(macOS 26, *)
     @ToolbarContentBuilder private var glassless: some ToolbarContent {
+        ToolbarItem(placement: .navigation) { undo }.sharedBackgroundVisibility(.hidden)
+        ToolbarItem(placement: .navigation) { redo }.sharedBackgroundVisibility(.hidden)
         ToolbarItem(placement: .primaryAction) { add }.sharedBackgroundVisibility(.hidden)
         ToolbarItem(placement: .primaryAction) { sort }.sharedBackgroundVisibility(.hidden)
         ToolbarItem(placement: .primaryAction) { frame }.sharedBackgroundVisibility(.hidden)
         ToolbarItem(placement: .primaryAction) { export }.sharedBackgroundVisibility(.hidden)
         ToolbarItem(placement: .primaryAction) { divider }.sharedBackgroundVisibility(.hidden)
         ToolbarItem(placement: .primaryAction) { inspector }.sharedBackgroundVisibility(.hidden)
+    }
+
+    private var undo: some View {
+        Button(action: project.undo) {
+            Label("Undo", systemImage: "arrow.uturn.backward")
+        }
+        .buttonStyle(FlatButtonStyle())
+        .help(Text("Undo"))
+        .disabled(!project.canUndo)
+    }
+
+    private var redo: some View {
+        Button(action: project.redo) {
+            Label("Redo", systemImage: "arrow.uturn.forward")
+        }
+        .buttonStyle(FlatButtonStyle())
+        .help(Text("Redo"))
+        .disabled(!project.canRedo)
     }
 
     private var add: some View {
@@ -42,7 +64,7 @@ struct WindowToolbar: ViewModifier {
         } label: {
             Label("Add", systemImage: "plus")
         }
-        .flatMenu()
+        .flatMenu(titled: true)
         .help(Text("Add photos and videos"))
     }
 
@@ -52,9 +74,9 @@ struct WindowToolbar: ViewModifier {
             Button("Date Taken") { project.sort(.dateTaken) }
             Button("File Name") { project.sort(.name) }
         } label: {
-            Label("Sort By", systemImage: "arrow.up.arrow.down")
+            Label("Sort", systemImage: "arrow.up.arrow.down")
         }
-        .flatMenu()
+        .flatMenu(titled: true)
         .help(Text("Sort the clips"))
         .disabled(project.clips.count < 2)
     }
@@ -78,18 +100,29 @@ struct WindowToolbar: ViewModifier {
             }
             .pickerStyle(.inline)
         } label: {
-            Label("Frame", systemImage: "aspectratio")
+            // The current choice is the label, so the button says what it does.
+            Label {
+                Text(verbatim: frameTitle)
+            } icon: {
+                Image(systemName: project.layout.shape == .tall || project.layout.shape == .portrait ? "rectangle.portrait" : "rectangle")
+            }
         }
-        .flatMenu()
+        .flatMenu(titled: true)
         .help(Text("Shape of the video, and fit with black bars or fill and crop"))
         .disabled(project.clips.isEmpty)
     }
 
+    private var frameTitle: String {
+        let shape = project.layout.shape.ratioName ?? String(localized: "Auto")
+        let fill = project.layout.fill == .fit ? String(localized: "Fit") : String(localized: "Fill")
+        return "\(shape) · \(fill)"
+    }
+
     private var export: some View {
         Button { project.showExport = true } label: {
-            Label("Export…", systemImage: "square.and.arrow.up")
+            Label("Export", systemImage: "square.and.arrow.up")
         }
-        .buttonStyle(FlatIconButtonStyle())
+        .buttonStyle(FlatButtonStyle(titled: true))
         .help(Text("Export…"))
         .disabled(!project.canExport || exporter.isRunning)
     }
@@ -105,33 +138,46 @@ struct WindowToolbar: ViewModifier {
         Button { showInspector.toggle() } label: {
             Label("Inspector", systemImage: "sidebar.trailing")
         }
-        .buttonStyle(FlatIconButtonStyle(active: showInspector && !project.clips.isEmpty))
+        .buttonStyle(FlatButtonStyle(active: showInspector && !project.clips.isEmpty))
         .help(Text("Show or hide the inspector"))
         .disabled(project.clips.isEmpty)
     }
 }
 
-/// An icon-only toolbar button without a bezel. `active` gives it the filled square that marks something switched on.
-struct FlatIconButtonStyle: ButtonStyle {
+/// A toolbar button without a bezel: an icon, or an icon and a word with `titled`.
+/// `active` gives it the filled square that marks something switched on.
+struct FlatButtonStyle: ButtonStyle {
+    var titled = false
     var active = false
 
     func makeBody(configuration: Configuration) -> some View {
-        FlatIcon(label: configuration.label, pressed: configuration.isPressed, active: active)
+        Flat(label: configuration.label, titled: titled, pressed: configuration.isPressed, active: active)
     }
 
-    private struct FlatIcon<Label: View>: View {
+    private struct Flat<Label: View>: View {
         let label: Label
+        let titled: Bool
         let pressed: Bool
         let active: Bool
         @State private var hovering = false
         @Environment(\.isEnabled) private var enabled
 
         var body: some View {
-            label
-                .labelStyle(.iconOnly)
-                .font(.system(size: 15, weight: .regular))
-                .foregroundStyle(enabled ? (active ? AnyShapeStyle(.primary) : AnyShapeStyle(.secondary)) : AnyShapeStyle(.quaternary))
-                .frame(width: 32, height: 28)
+            Group {
+                if titled {
+                    label
+                        .labelStyle(.titleAndIcon)
+                        .font(.system(size: 13, weight: .medium))
+                        .padding(.horizontal, 9)
+                } else {
+                    label
+                        .labelStyle(.iconOnly)
+                        .font(.system(size: 15, weight: .regular))
+                        .frame(width: 32)
+                }
+            }
+            .foregroundStyle(enabled ? (active ? AnyShapeStyle(.primary) : AnyShapeStyle(.secondary)) : AnyShapeStyle(.quaternary))
+            .frame(height: 28)
                 .background(
                     RoundedRectangle(cornerRadius: 7, style: .continuous)
                         .fill(Color.primary.opacity(fill))
@@ -150,10 +196,10 @@ struct FlatIconButtonStyle: ButtonStyle {
 
 private extension View {
     /// A pull-down menu that looks like a flat toolbar icon, without the disclosure chevron.
-    func flatMenu() -> some View {
+    func flatMenu(titled: Bool = false) -> some View {
         menuStyle(.button)
             .menuIndicator(.hidden)
-            .buttonStyle(FlatIconButtonStyle())
+            .buttonStyle(FlatButtonStyle(titled: titled))
             .fixedSize()
     }
 }

@@ -4,7 +4,6 @@
 "Add…" = "添加…";
 "Add from Photos…" = "从“照片”添加…";
 "Add photos and videos" = "添加照片和视频";
-"Sort By" = "排序方式";
 "Sort the clips" = "给片段排序";
 "Order Added" = "添加顺序";
 "Date Taken" = "拍摄时间";
@@ -74,13 +73,13 @@
 "Contact Support" = "联系支持";
 "Check for a New Version…" = "检查新版本…";
 
-/* Toolbar, inspector and Settings */
-"Frame" = "画面";
+/* Toolbar and inspector */
 "Shape of the video, and fit with black bars or fill and crop" = "视频的画面比例，以及加黑边适合或填满裁切";
 "Clips" = "片段";
 "Length" = "时长";
-"Photo Duration" = "照片时长";
-"Reopen Last Clips at Launch" = "启动时重新打开上次的片段";
 "Export" = "导出";
-"Show in Finder When Done" = "完成后在 Finder 中显示";
 "Scale" = "缩放";
+"Undo" = "撤销";
+"Redo" = "重做";
+"Start Over" = "从头开始";
+"Remove All" = "全部移除";

@@ -13,7 +13,6 @@
 		1FD711E8548BE51405A103C4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735623142082F3929C4A16D /* Project.swift */; };
 		2007FE4C571502AAE7FFAA3D /* Exporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C34EC32764FEA36EC33FE8 /* Exporter.swift */; };
 		20766FC8E6DADB160683FCB2 /* Filmstrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A423D461B215E13D7937181 /* Filmstrip.swift */; };
-		23B2232C1CD4D4267779BBB9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E4A96C48618647C9681E9C /* SettingsView.swift */; };
 		3720ED3EC6816F4EB0027235 /* Compositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F088B1C2A8BF8E24B1587 /* Compositor.swift */; };
 		38BD572047FF05861A969946 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5609268E373ABAFB7672B7 /* Media.swift */; };
 		3DFB27E08E1F9C5C35B1CA65 /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77989409B166BCAE7054E45D /* Carrier.swift */; };
@@ -30,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		0B76B80BB643A66E68E1EF45 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
-		27E4A96C48618647C9681E9C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4A7FACFE8182A941DAE1C4BB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5E4F9FB295E9CD635C41A71B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		61C34EC32764FEA36EC33FE8 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				FE3279EC227C755D5A28C171 /* PhotosImport.swift */,
 				0B76B80BB643A66E68E1EF45 /* Preview.swift */,
 				F735623142082F3929C4A16D /* Project.swift */,
-				27E4A96C48618647C9681E9C /* SettingsView.swift */,
 				622138D840EBA009394E49E4 /* SpoloApp.swift */,
 				B0E3C114533D742EDB6ABA8B /* Toolbar.swift */,
 			);
@@ -211,7 +208,6 @@
 				0116B644D84C2AC1B1AA45FA /* PhotosImport.swift in Sources */,
 				7EB0E25CB6A1B8023AD80517 /* Preview.swift in Sources */,
 				1FD711E8548BE51405A103C4 /* Project.swift in Sources */,
-				23B2232C1CD4D4267779BBB9 /* SettingsView.swift in Sources */,
 				EAC45777C183E69045018D07 /* SpoloApp.swift in Sources */,
 				10EA4AD337FB723B88F9E136 /* Timeline.swift in Sources */,
 				56FD417D34FDE9DD1B4DF06F /* Toolbar.swift in Sources */,

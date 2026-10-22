@@ -31,7 +31,11 @@ final class Project {
 
     var showPhotosPicker = false
     var showExport = false
-    @ObservationIgnored weak var undoManager: UndoManager?
+    /// Mirrors the undo manager, so the toolbar's Undo and Redo buttons can follow it.
+    private(set) var canUndo = false
+    private(set) var canRedo = false
+    @ObservationIgnored weak var undoManager: UndoManager? { didSet { observeUndo() } }
+    @ObservationIgnored private var undoObservers: [NSObjectProtocol] = []
     @ObservationIgnored private var nextAdded = 0
     @ObservationIgnored private var anchor: UUID?
     @ObservationIgnored private var gestureStart: Snapshot?
@@ -100,6 +104,28 @@ final class Project {
         undoManager.setActionName(String(localized: name))
     }
 
+    func undo() { undoManager?.undo() }
+    func redo() { undoManager?.redo() }
+
+    private func observeUndo() {
+        undoObservers.forEach(NotificationCenter.default.removeObserver)
+        undoObservers = []
+        guard let undoManager else { return refreshUndo() }
+        let names: [Notification.Name] = [.NSUndoManagerDidCloseUndoGroup, .NSUndoManagerDidUndoChange,
+                                          .NSUndoManagerDidRedoChange, .NSUndoManagerDidOpenUndoGroup]
+        undoObservers = names.map { name in
+            NotificationCenter.default.addObserver(forName: name, object: undoManager, queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.refreshUndo() }
+            }
+        }
+        refreshUndo()
+    }
+
+    private func refreshUndo() {
+        canUndo = undoManager?.canUndo ?? false
+        canRedo = undoManager?.canRedo ?? false
+    }
+
     /// For sliders: the whole drag becomes one undo step.
     func beginGesture() {
         if gestureStart == nil { gestureStart = snapshot }
@@ -119,7 +145,7 @@ final class Project {
         var added: [Clip] = []
         for url in files {
             let bookmark = try? url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-            added.append(Clip(id: UUID(), url: url, bookmark: bookmark, edits: Self.newEdits, added: nextAdded))
+            added.append(Clip(id: UUID(), url: url, bookmark: bookmark, added: nextAdded))
             nextAdded += 1
         }
         change("Add Clips") { clips += added }
@@ -131,7 +157,7 @@ final class Project {
     func addImported(_ urls: [URL]) {
         var added: [Clip] = []
         for url in urls {
-            added.append(Clip(id: UUID(), url: url, bookmark: nil, edits: Self.newEdits, added: nextAdded, imported: true))
+            added.append(Clip(id: UUID(), url: url, bookmark: nil, added: nextAdded, imported: true))
             nextAdded += 1
         }
         change("Add Clips") { clips += added }
@@ -139,14 +165,16 @@ final class Project {
         read(added)
     }
 
-    /// Edits a newly added clip starts with: the photo duration from Settings.
-    private static var newEdits: ClipEdits {
-        var edits = ClipEdits()
-        edits.photoDuration = Preference.defaultPhotoDuration
-        return edits
-    }
-
     func removeSelection() { remove(selection) }
+
+    /// Back to the empty window, with a fresh frame. Undo brings everything back.
+    func startOver() {
+        change("Start Over") {
+            clips = []
+            layout = Layout()
+        }
+        selection = []
+    }
 
     func remove(_ ids: Set<UUID>) {
         guard !ids.isEmpty else { return }
@@ -289,8 +317,7 @@ final class Project {
     private func restore() {
         restoring = true
         defer { restoring = false }
-        guard UserDefaults.standard.bool(forKey: Preference.reopenClips),
-              let data = try? Data(contentsOf: Self.sessionFile),
+        guard let data = try? Data(contentsOf: Self.sessionFile),
               let saved = try? JSONDecoder().decode(Saved.self, from: data) else {
             cleanImports()
             return
