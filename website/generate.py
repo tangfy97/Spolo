@@ -5,10 +5,9 @@
 
 The pages use the site's own styles.css (the Plakat layout shared with Rydd, Kvikkshot and Glimt).
 The version comes from project.yml. Set APP_STORE_URL once the app is live to show the
-Mac App Store button; the download button appears when publish-website.sh copies a notarized disk image.
+Mac App Store button. Downloads are GitHub releases; the site hosts no installers.
 """
 import html
-import os
 import pathlib
 import re
 
@@ -16,9 +15,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / "website" / "dist"
 VERSION = re.search(r'MARKETING_VERSION: "([^"]+)"', (ROOT / "project.yml").read_text()).group(1)
 APP_STORE_URL = ""
-# scripts/publish-website.sh sets this when it copies a notarized disk image to the site.
-DOWNLOAD_URL = os.environ.get("SPOLO_DOWNLOAD_URL", "")
 GITHUB = "https://github.com/tangfy97/Spolo"
+DOWNLOAD_URL = f"{GITHUB}/releases/latest"
 
 LANGS = {
     "en": {"suffix": "", "html": "en", "other": [("zh-cn", "中文")]},
@@ -47,7 +45,7 @@ COPY = {
         "get_text_store": "Free on the Mac App Store, and as a signed, notarized download.",
         "get_text_download": "Free, as a signed and notarized download. Coming soon to the Mac App Store.",
         "get_text_soon": "Free and open source. Coming soon to the Mac App Store; until then, Spolo can be built from the source on GitHub.",
-        "btn_store": "Mac App Store", "btn_download": "Download for Mac", "btn_source": "Source on GitHub", "btn_support": "Support & privacy",
+        "btn_store": "Mac App Store", "btn_download": "Download from GitHub", "btn_source": "Source on GitHub", "btn_support": "Support & privacy",
         "nav_apps": "Apps", "nav_support": "Support",
         # support page
         "s_title": "Spolo support, privacy and terms",
@@ -74,7 +72,7 @@ COPY = {
         ],
         "privacy_title": "Privacy policy",
         "privacy": [
-            "Last updated 22 October 2026. This policy covers the Mac App Store version and the version downloaded from this website.",
+            "Last updated 22 October 2026. This policy covers the Mac App Store version and the version downloaded from GitHub.",
             "<b>Spolo collects no data.</b> It has no network access: the App Sandbox does not let it connect to the internet. There are no accounts, analytics, telemetry, crash reporting, advertising or update checks, and no third-party code.",
             "Spolo reads the photos and videos you add, to show them and merge them. To bring your clips back the next time you open it, it remembers which files you added and how you edited them, as bookmarks to those files; it does not copy them.",
             "Photos and videos you add from your Photos library are chosen in the system's photo picker, so Spolo never has access to the library itself. The items you pick are copied into Spolo's own folder, because they have no file of their own; once they are no longer among your clips, they are deleted the next time Spolo opens.",
@@ -116,7 +114,7 @@ COPY = {
         "get_text_store": "可在 Mac App Store 免费获取，也可以下载经过签名和公证的版本。",
         "get_text_download": "免费下载，经过签名和公证。即将登陆 Mac App Store。",
         "get_text_soon": "免费、开源。即将登陆 Mac App Store；在那之前，可以从 GitHub 上的源代码构建。",
-        "btn_store": "Mac App Store", "btn_download": "下载 Mac 版", "btn_source": "GitHub 源代码", "btn_support": "支持与隐私",
+        "btn_store": "Mac App Store", "btn_download": "从 GitHub 下载", "btn_source": "GitHub 源代码", "btn_support": "支持与隐私",
         "nav_apps": "Apps", "nav_support": "支持",
         "s_title": "Spolo 支持、隐私与条款",
         "s_hero": "支持",
@@ -142,7 +140,7 @@ COPY = {
         ],
         "privacy_title": "隐私政策",
         "privacy": [
-            "最后更新：2026 年 10 月 22 日。本政策适用于 Mac App Store 版本和从本网站下载的版本。",
+            "最后更新：2026 年 10 月 22 日。本政策适用于 Mac App Store 版本和从 GitHub 下载的版本。",
             "<b>Spolo 不收集任何数据。</b>它完全没有网络权限：App 沙盒不允许它连接互联网。没有账号、统计、遥测、崩溃报告、广告或更新检查，也没有任何第三方代码。",
             "Spolo 读取你添加的照片和视频，用来显示和合并。为了下次打开时片段还在，它会以书签的方式记住你添加了哪些文件、怎么调整的；它不会复制这些文件。",
             "从“照片”图库添加的照片和视频是在系统的照片选择器里挑选的，Spolo 从来无法访问图库本身。挑选的项目没有自己的文件，所以会复制到 Spolo 自己的文件夹里；当它们不再在片段里时，下次打开 Spolo 就会删除。",
@@ -184,7 +182,7 @@ COPY = {
         "get_text_store": "可在 Mac App Store 免費取得，也可以下載經過簽署和公證的版本。",
         "get_text_download": "免費下載，經過簽署和公證。即將登上 Mac App Store。",
         "get_text_soon": "免費、開源。即將登上 Mac App Store；在那之前，可以從 GitHub 上的原始碼建置。",
-        "btn_store": "Mac App Store", "btn_download": "下載 Mac 版", "btn_source": "GitHub 原始碼", "btn_support": "支援與隱私",
+        "btn_store": "Mac App Store", "btn_download": "從 GitHub 下載", "btn_source": "GitHub 原始碼", "btn_support": "支援與隱私",
         "nav_apps": "Apps", "nav_support": "支援",
         "s_title": "Spolo 支援、隱私與條款",
         "s_hero": "支援",
@@ -210,7 +208,7 @@ COPY = {
         ],
         "privacy_title": "隱私權政策",
         "privacy": [
-            "最後更新：2026 年 10 月 22 日。本政策適用於 Mac App Store 版本和從本網站下載的版本。",
+            "最後更新：2026 年 10 月 22 日。本政策適用於 Mac App Store 版本和從 GitHub 下載的版本。",
             "<b>Spolo 不收集任何資料。</b>它完全沒有網路權限：App 沙盒不允許它連上網際網路。沒有帳號、統計、遙測、當機報告、廣告或更新檢查，也沒有任何第三方程式碼。",
             "Spolo 讀取你加入的照片和影片，用來顯示和合併。為了下次打開時片段還在，它會以書籤的方式記住你加入了哪些檔案、怎麼調整的；它不會複製這些檔案。",
             "從「照片」圖庫加入的照片和影片是在系統的照片選擇器中挑選的，Spolo 從來無法取用圖庫本身。挑選的項目沒有自己的檔案，所以會複製到 Spolo 自己的檔案夾中；當它們不再在片段中時，下次打開 Spolo 就會刪除。",
