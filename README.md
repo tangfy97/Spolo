@@ -34,7 +34,7 @@ scripts/test-merge.sh     # merges generated test media and checks every frame (
 |---|---|
 | `scripts/release.sh` | Website build: Developer ID, notarized, as a DMG and zip in `build/release` |
 | `scripts/appstore.sh` | App Store build: signed installer package, and `upload` sends it to App Store Connect |
-| `scripts/publish-website.sh` | Copies the pages from `website/` (and the notarized disk image) into the tang-spark.no site |
+| `scripts/publish-website.sh` | Copies the pages from `website/` into the tang-spark.no site (no installers; downloads are GitHub releases) |
 | `scripts/icon.swift` | Renders the app icon into the asset catalog |
 | `scripts/sample-video.swift`, `scripts/storeshot.swift` | Sample footage and App Store screenshot composition |
 | `scripts/test-merge.sh`, `scripts/test-photos.swift` | Test media and end-to-end checks of the merge engine |

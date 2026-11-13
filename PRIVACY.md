@@ -2,7 +2,7 @@
 
 *Last updated: 22 October 2026*
 
-Spolo is a macOS app for merging photos and videos into one video, made by TangSpark. This policy covers every version of Spolo: the Mac App Store version and the one downloaded from tang-spark.no.
+Spolo is a macOS app for merging photos and videos into one video, made by TangSpark. This policy covers every version of Spolo: the Mac App Store version and the one downloaded from GitHub.
 
 **Spolo collects no data.** It has no network access at all; the operating system's App Sandbox does not allow it to connect to the internet. There are no accounts, analytics, telemetry, crash reporting, advertising, or update checks, and no third-party code.
 

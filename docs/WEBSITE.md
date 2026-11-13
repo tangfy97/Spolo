@@ -6,7 +6,7 @@ The product and support pages live in the [tang-spark.no](https://github.com/tan
 |---|---|
 | Product (EN, 简体, 繁體) | `/spolo.html`, `/spolo-zh-cn.html`, `/spolo-zh-tw.html` |
 | Support, privacy, terms | `/spolo-support.html` (+ `-zh-cn`, `-zh-tw`); privacy is `#privacy` |
-| Latest disk image | `/spolo/download`, a redirect to `/downloads/Spolo-<version>.dmg` |
+| Download | `https://github.com/tangfy97/Spolo/releases/latest`; the site hosts no installers, and its `netlify.toml` redirects the old `/spolo/download` links there |
 
 The app's Help menu links to these pages in the language it runs in ([Links.swift](../Sources/SpoloApp/Links.swift)). In the downloaded version, Help › Check for a New Version opens the product page with `?installed=<version>`.
 
@@ -20,12 +20,14 @@ The homepage lists Spolo as app 05 in `index.html` of the site repo; that entry 
 ## Publishing a release
 
 ```bash
-scripts/release.sh                                  # notarized build/release/Spolo-<version>.dmg
+scripts/release.sh                                  # notarized build/release/Spolo-<version>.dmg, .zip and SHA256SUMS
+gh release create v<version> build/release/Spolo-<version>.dmg build/release/Spolo-<version>.zip build/release/SHA256SUMS \
+  --repo tangfy97/Spolo --title "Spolo <version>" --target main
 scripts/publish-website.sh ~/Documents/tang-spark.no
 git -C ~/Documents/tang-spark.no add -A && git -C ~/Documents/tang-spark.no commit -m "Spolo <version>"
 git -C ~/Documents/tang-spark.no push
 ```
 
-`publish-website.sh` refuses a disk image that isn't notarized, regenerates the pages, copies them with the images and the disk image, and points `/spolo/download` at the new version in `netlify.toml`. It never commits or pushes.
+The download button links to the latest GitHub release, so publish the release before the pages. `publish-website.sh` regenerates the pages and copies them with the images. It never copies a disk image, edits `netlify.toml`, commits or pushes.
 
 Once the app is live on the App Store, set `APP_STORE_URL` in `website/generate.py` to show the Mac App Store button, and publish again.
